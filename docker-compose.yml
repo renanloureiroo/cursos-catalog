@@ -1,0 +1,15 @@
+services:
+  cusrsos_db:
+    image: postgres:16
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: cursos_catalog
+      POSTGRES_USER: cursos_user
+      POSTGRES_PASSWORD: cursos_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
