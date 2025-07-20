@@ -1,5 +1,3 @@
-CREATE TYPE active_status AS ENUM ('ACTIVE', 'INACTIVE');
-
 CREATE TABLE categories (
     id UUID PRIMARY KEY,
     name VARCHAR(60) NOT NULL,
@@ -12,7 +10,7 @@ CREATE TABLE courses (
   id UUID PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   category_id UUID NOT NULL,
-  active active_status NOT NULL DEFAULT 'ACTIVE',
+  active VARCHAR(10) NOT NULL DEFAULT 'ACTIVE',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT fk_category  FOREIGN KEY (category_id) REFERENCES categories(id)

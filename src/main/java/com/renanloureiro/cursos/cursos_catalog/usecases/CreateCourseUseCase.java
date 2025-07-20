@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.renanloureiro.cursos.cursos_catalog.dtos.CreateCourseInputDTO;
+import com.renanloureiro.cursos.cursos_catalog.entities.ActiveStatus;
 import com.renanloureiro.cursos.cursos_catalog.entities.Category;
 import com.renanloureiro.cursos.cursos_catalog.entities.Course;
 import com.renanloureiro.cursos.cursos_catalog.exceptions.CategoryNotFoundException;
@@ -28,6 +29,7 @@ public class CreateCourseUseCase {
     Course course = Course.builder()
       .name(input.getName())
       .category(category)
+      .active(ActiveStatus.ACTIVE)
       .build();
 
     return coursesRepository.save(course);
