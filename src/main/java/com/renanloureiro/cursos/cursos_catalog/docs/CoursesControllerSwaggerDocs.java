@@ -43,4 +43,21 @@ public interface CoursesControllerSwaggerDocs {
       @ApiResponse(responseCode = "500", description = "Erro interno do servidor", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ErrorResponseDTO.class)))
   })
   ResponseEntity<CourseResponseDTO> updateCourse(UUID id, UpdateCourseInputDTO input);
+
+  @Operation(summary = "Deletar um curso", description = "Deleta um curso existente no catálogo")
+  @ApiResponses(value = {
+      @ApiResponse(responseCode = "204", description = "Curso deletado com sucesso"),
+      @ApiResponse(responseCode = "404", description = "Curso não encontrado", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ErrorResponseDTO.class))),
+      @ApiResponse(responseCode = "500", description = "Erro interno do servidor", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ErrorResponseDTO.class)))
+  })
+  ResponseEntity<Object> deleteCourse(UUID id);
+
+  @Operation(summary = "Alterar o status de atividade de um curso", description = "Altera o status de atividade de um curso existente no catálogo")
+  @ApiResponses(value = {
+      @ApiResponse(responseCode = "204", description = "Status de atividade alterado com sucesso"),
+      @ApiResponse(responseCode = "404", description = "Curso não encontrado", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ErrorResponseDTO.class))),
+      @ApiResponse(responseCode = "500", description = "Erro interno do servidor", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ErrorResponseDTO.class)))
+  })
+  ResponseEntity<Object> patchCourse(UUID id);
+
 }
