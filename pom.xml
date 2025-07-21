@@ -135,9 +135,9 @@
      		<artifactId>flyway-maven-plugin</artifactId>
      		<version>11.7.2</version>
      		<configuration>
-       		<url>${DATABASE_URL}</url>
-       		<user>${DATABASE_USER}</user>
-       		<password>${DATABASE_PASSWORD}</password>
+       		<url>jdbc:postgresql://localhost:5432/cursos_catalog</url>
+       		<user>cursos_user</user>
+       		<password>cursos_pass</password>
      		</configuration>
    		</plugin>
 		</plugins>
