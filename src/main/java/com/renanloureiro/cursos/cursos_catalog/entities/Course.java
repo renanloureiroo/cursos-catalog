@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Table(name = "courses")
 @Schema(description = "Entidade que representa um curso")
 public class Course {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   @Schema(description = "ID único do curso", example = "123e4567-e89b-12d3-a456-426614174000")

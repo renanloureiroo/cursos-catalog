@@ -77,6 +77,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -140,6 +145,16 @@
        		<password>cursos_pass</password>
      		</configuration>
    		</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<argLine>
+						-Djdk.attach.allowAttachSelf=true
+						-XX:+EnableDynamicAgentLoading
+					</argLine>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

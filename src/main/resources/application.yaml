@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: cursos-catalog
+
+  # Configuração do JPA
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Configuração do datasource Postgres
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD:cursos_pass}
+    driver-class-name: org.postgresql.Driver
+
+  # Configuração do Flyway
+  flyway:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    enabled: ${FLYWAY_ENABLED:true}
+    locations: classpath:db/migration
+    user: ${DB_USER}
+    password: ${DB_PASSWORD}
+    schemas: public
+
+# Configuração do servidor
+server:
+  port: ${SERVER_PORT}
+
+# Configuração do Swagger/OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    doc-expansion: none

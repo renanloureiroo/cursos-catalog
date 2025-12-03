@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: cursos-catalog-test
+
+  # Configuração do JPA para testes
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+
+  # Configuração do datasource H2 para testes
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  # H2 Console (opcional, útil para debug)
+  h2:
+    console:
+      enabled: true
+
+  # Desabilitar Flyway em testes
+  flyway:
+    enabled: false
+
+# Configuração do servidor para testes (porta aleatória)
+server:
+  port: 0
+
+# Configuração do Swagger/OpenAPI (desabilitado para testes)
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
